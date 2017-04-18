@@ -103,3 +103,22 @@ def anagrams(word, words):
         if w not in anagrams_list and sorted(word)==sorted(w):
             anagrams_list.append(w)
     return anagrams_list
+
+def move_zeros(array):
+    """
+    ARGS: list of ints and strings
+    RETURNS: list of ints and strings having the zeros as the last elements
+
+    Write an algorithm that takes an array and moves all of the zeros to the end,
+    preserving the order of the other elements.
+    move_zeros([false,1,0,1,2,0,1,3,"a"]) # returns[false,1,1,2,1,3,"a",0,0]
+
+    """
+    result_list=[]
+    zero_list=[]
+    for i in mylist:
+        if type(i)!=bool and i==0:
+            zero_list.append(0)
+        else:
+            result_list.append(i)
+    return result_list+zero_list
