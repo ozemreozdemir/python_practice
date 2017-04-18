@@ -83,3 +83,23 @@ def make_readable(seconds):
     SS=(seconds-MM*60-HH*3600)
     time= str(HH).zfill(2) + ":" + str(MM).zfill(2) +":" + str(SS).zfill(2)
     return time
+
+    #Where my anagrams at?
+
+def anagrams(word, words):
+    """
+    ARGS : word :(int) word that will be searched to have an anagram
+           words: (list) list of integers
+    RETURNS: anagrams_list(list) list of strings that are anagrams of given word
+
+    Write a function that will find all the anagrams of a word from a list.
+    You will be given two inputs a word and an array with words.
+    You should return an array of all the anagrams or an empty array if there are none.
+    For example:
+    anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']) => ['aabb', 'bbaa']
+    """
+    anagrams_list=[]
+    for w in words:
+        if w not in anagrams_list and sorted(word)==sorted(w):
+            anagrams_list.append(w)
+    return anagrams_list
