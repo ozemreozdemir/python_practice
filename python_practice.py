@@ -122,3 +122,33 @@ def move_zeros(array):
         else:
             result_list.append(i)
     return result_list+zero_list
+
+def dirReduc(arr):
+    """
+    ARGS : arr (list) list of strings (directions)
+    RETURNS : directions (list) list of strings
+
+    Once upon a time, on a way through the old wild west, a man was given
+    directions to go from one point to another. The directions were
+    "NORTH", "SOUTH", "WEST", "EAST". Clearly "NORTH" and "SOUTH" are opposite,
+    "WEST" and "EAST" too. Going to one direction and coming back the opposite
+    direction is a needless effort. Since this is the wild west, with dreadfull
+    weather and not much water, it's important to save yourself some energy,
+    otherwise you might die of thirst!
+    """
+    directions=[]
+
+    ns = arr.count('NORTH')-arr.count('SOUTH')
+    ew =  arr.count('EAST')-arr.count('WEST')
+
+    if ns > 0:
+        directions+=['NORTH']*(ns)
+    elif ns < 0:
+        directions += ['SOUTH']*(-ns)
+
+    if ew > 0:
+        directions+=['EAST']*(ew)
+    elif ew < 0:
+        directions+=['WEST']*(-ew)
+
+    return directions
