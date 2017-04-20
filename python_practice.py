@@ -152,3 +152,30 @@ def dirReduc(arr):
         directions+=['WEST']*(-ew)
 
     return directions
+
+#Maximum subarray sum
+def maxSequence(arr):
+    """
+    Return the maxumym subarray
+
+    ARGS : arr (list) list of integers
+    RETURNS : result_list (list) list of integers
+
+    The maximum sum subarray problem consists in finding the maximum sum of a
+    contiguous subsequence in an array or list of integers:
+
+    Example:
+    maxSequence([-2, 1, -3, 4, -1, 2, 1, -5, 4])
+    should be 6: [4, -1, 2, 1]
+    """
+def maxSequence(arr):
+    sumdict={}
+    if len(arr) > 0:
+        for i in range(len(arr)-1):
+            for j in range(i+1,len(arr)+1):
+                sumdict[(i,j)]=sum(arr[i:j])
+#        ii= max(sumdict,key=sumdict.get)[0]
+#        jj= max(sumdict,key=sumdict.get)[1]
+        return max(sumdict.values())
+    else:
+        return 0
