@@ -203,3 +203,29 @@ def palindrome_chain_length(n):
             steps+=1
             m=int(''.join(str(m)[::-1]))+m
     return steps
+
+def nbr_of_laps(x, y):
+    from fractions import Fraction
+    """
+    ARGS : x (int) as Bob's lenght (larger than 0)
+           y (int) as Charle's lenght (larger than 0)
+
+    RETURNS : lap_list : (list of int) list of Bob's and Charle's laps
+
+
+    Bob and Charles are meeting for their weekly jogging tour.
+    They both start at the same spot called "Start" and they each run
+    a different lap, which may (or may not) vary in length.
+    Since they know each other for a long time already, they both run
+    at the exact same speed.
+
+    """
+    if x > y :
+        laprate=float(y)/x
+        int_ratio=Fraction(laprate).limit_denominator()
+        laplist=[int_ratio.numerator,int_ratio.denominator]
+    else :
+        laprate=float(x)/y
+        int_ratio=Fraction(laprate).limit_denominator()
+        laplist=[int_ratio.denominator,int_ratio.numerator]
+    return laplist
