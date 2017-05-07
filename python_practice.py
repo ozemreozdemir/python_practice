@@ -250,24 +250,39 @@ def minion_game(string):
     Kevin's vowel beginning word = ANA
     Here, ANA occurs twice in BANANA. Hence, Kevin will get 2 Points.
     """
-    mdict={}
-    for char in list(set(string)):
-        for i in range(len(string)):
-            for j in range(len(string)+1):
-                word = char+string[i:j]
-                if word not in mdict:
-                    mdict[word]=string.count(word)
-    s=0
-    k=0
-    for word in mdict:
-        if word in string:
-            if word[0] in list('aeiouAEIOU'):
-                k+=mdict[word]
-            else:
-                s+=mdict[word]
+    if len(S) > 0 and len(S) <= 10**6 and S.isupper():
+    k=s=0
+    for i in range(len(S)):
+        if S[i] in list('AEIOU'):
+            k+=len(S)-i
+            print S[i], k
+        else:
+            s+=len(S)-i
+            print S[i], s
     if s > k:
-        print "Stuart", s
+        print "Stuart", s, "Kevin" , k
     elif k > s:
         print "Kevin" , k
     else:
         print 'Draw'
+    # mdict={}
+    # for char in list(set(string)):
+    #     for i in range(len(string)):
+    #         for j in range(len(string)+1):
+    #             word = char+string[i:j]
+    #             if word not in mdict:
+    #                 mdict[word]=string.count(word)
+    # s=0
+    # k=0
+    # for word in mdict:
+    #     if word in string:
+    #         if word[0] in list('aeiouAEIOU'):
+    #             k+=mdict[word]
+    #         else:
+    #             s+=mdict[word]
+    # if s > k:
+    #     print "Stuart", s
+    # elif k > s:
+    #     print "Kevin" , k
+    # else:
+    #     print 'Draw'
